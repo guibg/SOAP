@@ -3,20 +3,25 @@ package servico;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Servico {
+import javax.jws.WebService;
 
-	private static List<String> Materias = new ArrayList<>();
+import model.Disciplina;
 
-	public void inserirMateria(String materia) {
-		Materias.add(materia);
+@WebService(endpointInterface = "servico.ServicoI")
+public class Servico implements ServicoI {
+
+	private static List<Disciplina> Disciplinas = new ArrayList<>();
+
+	public void inserirDisciplina(Disciplina disciplina) {
+		Disciplinas.add(disciplina);
 	}
 
-	public String listarMaterias() {
-		String MateriasRetorno = "";
-		for (String materia : Materias) {
-			MateriasRetorno += ", ";
-			MateriasRetorno += materia;
+	public String listarDisciplina() {
+		String disciplinasRetorno = "";
+		for (Disciplina disciplina : Disciplinas) {
+			disciplinasRetorno += disciplina.getNome();
+			disciplinasRetorno += ", ";
 		}
-		return MateriasRetorno;
+		return disciplinasRetorno;
 	}
 }

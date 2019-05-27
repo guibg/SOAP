@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="ServicoSOAP">
+    <wb-module deploy-name="disciplinas">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="ServicoSOAP"/>
-        <property name="java-output-path" value="/ServicoSOAP/build/classes"/>
+        <property name="java-output-path" value="/disciplinas/build/classes"/>
+        <property name="context-root" value="disciplinas"/>
     </wb-module>
 </project-modules>

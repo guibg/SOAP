@@ -15,20 +15,25 @@
   <service name="Servico" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://servico"/>
       <parameter name="wsdlServiceElement" value="ServicoService"/>
-      <parameter name="schemaQualified" value="http://servico"/>
+      <parameter name="schemaQualified" value="http://model,http://servico"/>
       <parameter name="wsdlServicePort" value="Servico"/>
       <parameter name="className" value="servico.ServicoSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="Servico"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="somar" qname="operNS:somar" xmlns:operNS="http://servico" returnQName="retNS:somarReturn" xmlns:retNS="http://servico" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:a" xmlns:pns="http://servico" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:b" xmlns:pns="http://servico" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="inserirDisciplina" qname="operNS:inserirDisciplina" xmlns:operNS="http://servico" soapAction="" >
+        <parameter qname="pns:disciplina" xmlns:pns="http://servico" type="tns:Disciplina" xmlns:tns="http://model"/>
       </operation>
-      <operation name="subtrair" qname="operNS:subtrair" xmlns:operNS="http://servico" returnQName="retNS:subtrairReturn" xmlns:retNS="http://servico" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:a" xmlns:pns="http://servico" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:b" xmlns:pns="http://servico" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="listarDisciplina" qname="operNS:listarDisciplina" xmlns:operNS="http://servico" returnQName="retNS:listarDisciplinaReturn" xmlns:retNS="http://servico" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
-      <parameter name="allowedMethods" value="somar subtrair"/>
+      <parameter name="allowedMethods" value="inserirDisciplina listarDisciplina"/>
 
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:Disciplina"
+        type="java:model.Disciplina"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
   </service>
 </deployment>

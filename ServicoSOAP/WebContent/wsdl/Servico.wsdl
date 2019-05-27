@@ -1,69 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://servico" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servico" xmlns:intf="http://servico" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://servico" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servico" xmlns:intf="http://servico" xmlns:tns1="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://servico" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="somar">
+   <import namespace="http://model"/>
+   <element name="inserirDisciplina">
     <complexType>
      <sequence>
-      <element name="a" type="xsd:int"/>
-      <element name="b" type="xsd:int"/>
+      <element name="disciplina" type="tns1:Disciplina"/>
      </sequence>
     </complexType>
    </element>
-   <element name="somarResponse">
-    <complexType>
-     <sequence>
-      <element name="somarReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
+   <element name="inserirDisciplinaResponse">
+    <complexType/>
    </element>
-   <element name="subtrair">
-    <complexType>
-     <sequence>
-      <element name="a" type="xsd:int"/>
-      <element name="b" type="xsd:int"/>
-     </sequence>
-    </complexType>
+   <element name="listarDisciplina">
+    <complexType/>
    </element>
-   <element name="subtrairResponse">
+   <element name="listarDisciplinaResponse">
     <complexType>
      <sequence>
-      <element name="subtrairReturn" type="xsd:int"/>
+      <element name="listarDisciplinaReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
   </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Disciplina">
+    <sequence>
+     <element name="nome" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
  </wsdl:types>
 
-   <wsdl:message name="somarRequest">
+   <wsdl:message name="inserirDisciplinaRequest">
 
-      <wsdl:part element="impl:somar" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="subtrairRequest">
-
-      <wsdl:part element="impl:subtrair" name="parameters">
+      <wsdl:part element="impl:inserirDisciplina" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="subtrairResponse">
+   <wsdl:message name="listarDisciplinaResponse">
 
-      <wsdl:part element="impl:subtrairResponse" name="parameters">
+      <wsdl:part element="impl:listarDisciplinaResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="somarResponse">
+   <wsdl:message name="inserirDisciplinaResponse">
 
-      <wsdl:part element="impl:somarResponse" name="parameters">
+      <wsdl:part element="impl:inserirDisciplinaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listarDisciplinaRequest">
+
+      <wsdl:part element="impl:listarDisciplina" name="parameters">
 
       </wsdl:part>
 
@@ -71,25 +69,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Servico">
 
-      <wsdl:operation name="somar">
+      <wsdl:operation name="inserirDisciplina">
 
-         <wsdl:input message="impl:somarRequest" name="somarRequest">
+         <wsdl:input message="impl:inserirDisciplinaRequest" name="inserirDisciplinaRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:somarResponse" name="somarResponse">
+         <wsdl:output message="impl:inserirDisciplinaResponse" name="inserirDisciplinaResponse">
 
        </wsdl:output>
 
       </wsdl:operation>
 
-      <wsdl:operation name="subtrair">
+      <wsdl:operation name="listarDisciplina">
 
-         <wsdl:input message="impl:subtrairRequest" name="subtrairRequest">
+         <wsdl:input message="impl:listarDisciplinaRequest" name="listarDisciplinaRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:subtrairResponse" name="subtrairResponse">
+         <wsdl:output message="impl:listarDisciplinaResponse" name="listarDisciplinaResponse">
 
        </wsdl:output>
 
@@ -101,17 +99,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="somar">
+      <wsdl:operation name="inserirDisciplina">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="somarRequest">
+         <wsdl:input name="inserirDisciplinaRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="somarResponse">
+         <wsdl:output name="inserirDisciplinaResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -119,17 +117,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="subtrair">
+      <wsdl:operation name="listarDisciplina">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="subtrairRequest">
+         <wsdl:input name="listarDisciplinaRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="subtrairResponse">
+         <wsdl:output name="listarDisciplinaResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -143,7 +141,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:ServicoSoapBinding" name="Servico">
 
-         <wsdlsoap:address location="http://localhost:8080/ServicoSOAP/services/Servico"/>
+         <wsdlsoap:address location="http://tempuri.org/disciplinas/services/Servico"/>
 
       </wsdl:port>
 
