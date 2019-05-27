@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://servico" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servico" xmlns:intf="http://servico" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://servico" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="somar">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+      <element name="b" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="somarResponse">
+    <complexType>
+     <sequence>
+      <element name="somarReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtrair">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+      <element name="b" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtrairResponse">
+    <complexType>
+     <sequence>
+      <element name="subtrairReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="somarRequest">
+
+      <wsdl:part element="impl:somar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subtrairRequest">
+
+      <wsdl:part element="impl:subtrair" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subtrairResponse">
+
+      <wsdl:part element="impl:subtrairResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="somarResponse">
+
+      <wsdl:part element="impl:somarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Servico">
+
+      <wsdl:operation name="somar">
+
+         <wsdl:input message="impl:somarRequest" name="somarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:somarResponse" name="somarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtrair">
+
+         <wsdl:input message="impl:subtrairRequest" name="subtrairRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:subtrairResponse" name="subtrairResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServicoSoapBinding" type="impl:Servico">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="somar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="somarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="somarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtrair">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subtrairRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subtrairResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServicoService">
+
+      <wsdl:port binding="impl:ServicoSoapBinding" name="Servico">
+
+         <wsdlsoap:address location="http://localhost:8080/ServicoSOAP/services/Servico"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
