@@ -1,12 +1,22 @@
 package servico;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Servico {
 
-	public int somar(int a, int b) {
-		return a + b;
+	private static List<String> Materias = new ArrayList<>();
+
+	public void inserirMateria(String materia) {
+		Materias.add(materia);
 	}
 
-	public int subtrair(int a, int b) {
-		return a - b;
+	public String listarMaterias() {
+		String MateriasRetorno = "";
+		for (String materia : Materias) {
+			MateriasRetorno += ", ";
+			MateriasRetorno += materia;
+		}
+		return MateriasRetorno;
 	}
 }
