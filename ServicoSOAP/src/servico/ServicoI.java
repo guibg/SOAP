@@ -13,4 +13,5 @@ public interface ServicoI {
 	@WebMethod void inserirDisciplina(Disciplina materia);
 
 	@WebMethod String listarDisciplina();
+	
 }

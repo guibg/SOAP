@@ -24,4 +24,5 @@ public class Servico implements ServicoI {
 		}
 		return disciplinasRetorno;
 	}
+
 }
